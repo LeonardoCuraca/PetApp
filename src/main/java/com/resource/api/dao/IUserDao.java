@@ -9,7 +9,7 @@ import com.resource.api.entity.User;
 @Repository
 public interface IUserDao extends CrudRepository<User, Long>{
 	
-	@Query(value = "select * from users where useremail = \n-- #useremail\n and userpassword = \n-- #userpassword\n", nativeQuery = true)
+	@Query(value = "select * from users where useremail = ?1 and userpassword = ?2", nativeQuery = true)
 	public User login(String useremail, String userpassword);
 	
 }
