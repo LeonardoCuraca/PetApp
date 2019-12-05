@@ -39,7 +39,7 @@ public class UserController {
 		return userService.login(useremail, userpassword);
 	}
 	
-	@PostMapping("/usuarios")
+	@PostMapping("/users")
 	public User createUser(@RequestBody User user){
 		userService.saveUser(user);
 		return user;
