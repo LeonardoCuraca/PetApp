@@ -34,8 +34,8 @@ public class UserController {
 		return userService.findById(userid);
 	}
 	
-	@GetMapping("/login")
-	public User login(@RequestParam("useremail") String useremail, @RequestParam("userpassword") String userpassword) {
+	@GetMapping("/login/{useremail}/{userpassword}")
+	public User login(@PathVariable("useremail") String useremail, @PathVariable("userpassword") String userpassword) {
 		return userService.login(useremail, userpassword);
 	}
 	
