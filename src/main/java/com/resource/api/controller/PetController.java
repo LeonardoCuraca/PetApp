@@ -63,7 +63,14 @@ public class PetController {
 	}
 	
 	@PostMapping("/pets")
-	public Pet addPet (@RequestParam(name="image", required=false) MultipartFile image, @RequestBody Pet pet) throws IOException {
+	public Pet addPet (@RequestParam(name="image", required=false) MultipartFile image, @RequestParam("petname") String petname, @RequestParam("petrace") String petrace, @RequestParam("petage") int petage, @RequestParam("petuser") Long petuser) throws IOException {
+		
+		Pet pet = new Pet();
+		pet.setPetname(petname);
+		pet.setPetrace(petrace);
+		pet.setPetage(petage);
+		pet.setPetuser(petuser);
+		
 		if (image != null && !image.isEmpty()) {
 			String filename = System.currentTimeMillis() + image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf("."));
 			pet.setPetimage(filename);
